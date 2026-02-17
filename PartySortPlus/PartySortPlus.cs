@@ -185,7 +185,7 @@ public unsafe class PartySortPlus: IDalamudPlugin
 
                             if (!skipTerritoryCheck)
                             {
-                                if (!rule.Territories.Contains(Player.Territory))
+                                if (!rule.Territories.Contains(Svc.ClientState.TerritoryType))
                                 {
                                     PluginLog.Debug($"Territory check failed.");
                                     continue;

@@ -1,4 +1,4 @@
-using ImGuiNET;
+using Dalamud.Bindings.ImGui;
 using OtterGui.Widgets;
 using OtterGuiInternal.Utility;
 using PartySortPlus.GUI;

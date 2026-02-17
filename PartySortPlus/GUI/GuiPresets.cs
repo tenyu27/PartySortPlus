@@ -5,7 +5,7 @@ using ECommons.Configuration;
 using ECommons.ExcelServices;
 using ECommons.ImGuiMethods;
 using ECommons.Logging;
-using ImGuiNET;
+using Dalamud.Bindings.ImGui;
 using PartySortPlus.Configuration;
 using System.Numerics;
 
@@ -158,7 +158,7 @@ namespace PartySortPlus.GUI
 
                                     if (ThreadLoadImageHandler.TryGetIconTextureWrap((uint)job.GetIcon(), false, out var texture))
                                     {
-                                        ImGui.Image(texture.ImGuiHandle, iconSize);
+                                        ImGui.Image(texture.Handle, iconSize);
                                     }
 
                                     ImGui.SameLine();

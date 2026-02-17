@@ -8,7 +8,7 @@ using ECommons.ImGuiMethods;
 using ECommons.ImGuiMethods.TerritorySelection;
 using ECommons.Logging;
 using ECommons.Schedulers;
-using ImGuiNET;
+using Dalamud.Bindings.ImGui;
 using Lumina.Excel.Sheets;
 using PartySortPlus.Checkers;
 using PartySortPlus.Configuration;
@@ -176,7 +176,7 @@ namespace PartySortPlus.GUI
                                     if (OnlySelected[filterCnt] && !rule.Jobs.Contains(cond)) continue;
                                     if (ThreadLoadImageHandler.TryGetIconTextureWrap((uint)cond.GetIcon(), false, out var texture))
                                     {
-                                        ImGui.Image(texture.ImGuiHandle, iconSize);
+                                        ImGui.Image(texture.Handle, iconSize);
                                         ImGui.SameLine();
                                     }
                                     if (cond.IsUpgradeable()) ImGui.PushStyleColor(ImGuiCol.Text, ImGuiColors.DalamudGrey3);
@@ -209,7 +209,7 @@ namespace PartySortPlus.GUI
                                     if (OnlySelected[filterCnt] && !rule.PartyJobs.Contains(cond)) continue;
                                     if (ThreadLoadImageHandler.TryGetIconTextureWrap((uint)cond.GetIcon(), false, out var texture))
                                     {
-                                        ImGui.Image(texture.ImGuiHandle, iconSize);
+                                        ImGui.Image(texture.Handle, iconSize);
                                         ImGui.SameLine();
                                     }
                                     if (cond.IsUpgradeable()) ImGui.PushStyleColor(ImGuiCol.Text, ImGuiColors.DalamudGrey3);
@@ -287,7 +287,7 @@ namespace PartySortPlus.GUI
             if (cond != Biome.No_biome && assemblyLocation != null &&
                 ThreadLoadImageHandler.TryGetTextureWrap(Path.Combine(assemblyLocation, "images", "biome", $"{(int)cond}.png"), out var texture))
             {
-                ImGui.Image(texture.ImGuiHandle, iconSize);
+                ImGui.Image(texture.Handle, iconSize);
                 ImGui.SameLine();
             }
             ImGuiEx.Text(nullable, arg2);

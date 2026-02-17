@@ -1,6 +1,6 @@
 using ECommons.ImGuiMethods;
 using ECommons.Logging;
-using ImGuiNET;
+using Dalamud.Bindings.ImGui;
 using PartySortPlus.Configuration;
 using System;
 using System.Collections.Generic;
