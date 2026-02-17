@@ -96,42 +96,11 @@ namespace PartySortPlus.GUI
                         ImGui.TableNextColumn();
 
                         //Sorting
-                        var rowPos = ImGui.GetCursorPos();
                         ImGui.Checkbox("##enable", ref rule.Enabled);
                         ImGuiEx.Tooltip("Enable this rule");
 
-                        ImGui.SameLine();
-                        ImGui.PushFont(UiBuilder.IconFont);
-                        var cur = ImGui.GetCursorPos();
-                        var size = ImGuiHelpers.GetButtonSize(FontAwesomeIcon.ArrowsUpDownLeftRight.ToIconString());
-                        ImGui.Dummy(size);
-                        ImGui.PopFont();
-
-                        var moveIndex = i;
-
-                        MoveCommands.Add((rowPos, cur, delegate
-                        {
-                            ImGui.PushFont(UiBuilder.IconFont);
-                            ImGui.Button($"{FontAwesomeIcon.ArrowsUpDownLeftRight.ToIconString()}##Move{rule.GUID}");
-                            ImGui.PopFont();
-                            if (ImGui.IsItemHovered())
-                            {
-                                ImGui.SetMouseCursor(ImGuiMouseCursor.ResizeAll);
-                            }
-                            if (ImGui.BeginDragDropSource(ImGuiDragDropFlags.SourceNoPreviewTooltip))
-                            {
-                                ImGuiDragDrop.SetDragDropPayload("MoveRule", rule.GUID);
-                                CurrentDrag = rule.GUID;
-                                InternalLog.Verbose($"DragDropSource = {rule.GUID}");
-                                ImGui.EndDragDropSource();
-                            }
-                            else if (CurrentDrag == rule.GUID)
-                            {
-                                InternalLog.Verbose($"Current drag reset!");
-                                CurrentDrag = null;
-                            }
-                        }, delegate { DragDropUtils.AcceptRuleDragDrop(Profile, moveIndex); }
-                        ));
+                        // Drag-and-drop reorder button hidden while reorder is broken
+                        // ImGui.SameLine(); ... MoveCommands.Add(...);
 
                         // Zones
                         if (PartySortPlus.C.Cond_Territory)
