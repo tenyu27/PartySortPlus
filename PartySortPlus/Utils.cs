@@ -31,7 +31,7 @@ namespace PartySortPlus
             }
         }
 
-        public static string PrintRange(this IEnumerable<string> s, out string FullList, string noneStr = "Any")
+        public static string PrintRange(this IEnumerable<string> s, out string? FullList, string noneStr = "Any")
         {
             FullList = null;
             var list = s.ToArray();

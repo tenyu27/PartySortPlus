@@ -104,7 +104,7 @@ public unsafe class PartySortPlus: IDalamudPlugin
         } 
         else if(arguments.EqualsIgnoreCaseAny("ui") || arguments.EqualsIgnoreCaseAny("config"))
         {
-            EzConfigGui.Window.IsOpen ^= true;
+            EzConfigGui.Window!.IsOpen ^= true;
         }
         else if(arguments.EqualsIgnoreCaseAny("tutorial"))
         {

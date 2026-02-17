@@ -22,11 +22,14 @@ namespace PartySortPlus.GUI
             // Ensure PartySortPlus.P is not null before accessing its properties
             if (PartySortPlus.P != null)
             {
-                EzConfigGui.Window.WindowName = $"{DalamudReflector.GetPluginName()} v{PartySortPlus.P.GetType().Assembly.GetName().Version} [{resolution}]###{DalamudReflector.GetPluginName()}";
+                var version = PartySortPlus.P.GetType().Assembly.GetName().Version?.ToString() ?? "?";
+                var pluginName = DalamudReflector.GetPluginName() ?? "Party Sort+";
+                EzConfigGui.Window!.WindowName = $"{pluginName} v{version} [{resolution}]###{pluginName}";
             }
             else
             {
-                EzConfigGui.Window.WindowName = $"{DalamudReflector.GetPluginName()} [Plugin Not Initialized]";
+                var pluginName = DalamudReflector.GetPluginName() ?? "Party Sort+";
+                EzConfigGui.Window!.WindowName = $"{pluginName} [Plugin Not Initialized]";
             }
 
             EzConfigGui.Window.RespectCloseHotkey = true;

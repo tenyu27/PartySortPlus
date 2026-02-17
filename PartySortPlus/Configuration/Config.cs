@@ -1,5 +1,4 @@
 using Dalamud.Plugin.Internal.Profiles;
-using ECommons.Configuration;
 using Dalamud.Bindings.ImGui;
 using System;
 using System.Collections.Generic;
@@ -10,7 +9,7 @@ using System.Threading.Tasks;
 namespace PartySortPlus.Configuration
 {
     [Serializable]
-    public class Config: IEzConfig
+    public class Config
     {
         public bool Enable = true;
         public bool Debug = false;
